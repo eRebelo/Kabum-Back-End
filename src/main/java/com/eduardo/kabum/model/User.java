@@ -34,11 +34,8 @@ public class User implements Serializable {
 
 	private String password;
 
-	@Column(name = "create_date")
-	private LocalDateTime createDate;
-
-	@Column(name = "change_date")
-	private LocalDateTime changeDate;
+	@Column(name = "creation_date")
+	private LocalDateTime creationDate;
 
 	public long getId() {
 		return id;
@@ -80,20 +77,11 @@ public class User implements Serializable {
 		this.password = password;
 	}
 
-	public LocalDateTime getCreateDate() {
-		return createDate;
+	public LocalDateTime getCreationDate() {
+		return creationDate;
 	}
 
-	public void setCreateDate(LocalDateTime createDate) {
-		this.createDate = createDate;
+	public void setCreationDate(LocalDateTime creationDate) {
+		this.creationDate = creationDate;
 	}
-
-	public LocalDateTime getChangeDate() {
-		return changeDate;
-	}
-
-	public void setChangeDate(LocalDateTime changeDate) {
-		this.changeDate = changeDate;
-	}
-
 }

@@ -1,7 +1,18 @@
 package com.eduardo.kabum.model;
 
 import java.io.Serializable;
-import javax.persistence.*;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 /**
  * The persistent class for the customer_address database table.
@@ -16,7 +27,7 @@ public class CustomerAddress implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+	private long id;
 
 	private String city;
 
@@ -32,20 +43,22 @@ public class CustomerAddress implements Serializable {
 	private String streetAddress;
 
 	@Column(name = "zip_code")
-	private int zipCode;
+	private String zipCode;
 
 	// bi-directional many-to-one association to Customer
 	@ManyToOne
+	@JoinColumn(name = "customer_id")
+	@JsonBackReference
 	private Customer customer;
 
 	public CustomerAddress() {
 	}
 
-	public int getId() {
+	public long getId() {
 		return this.id;
 	}
 
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
@@ -97,11 +110,11 @@ public class CustomerAddress implements Serializable {
 		this.streetAddress = streetAddress;
 	}
 
-	public int getZipCode() {
+	public String getZipCode() {
 		return this.zipCode;
 	}
 
-	public void setZipCode(int zipCode) {
+	public void setZipCode(String zipCode) {
 		this.zipCode = zipCode;
 	}
 

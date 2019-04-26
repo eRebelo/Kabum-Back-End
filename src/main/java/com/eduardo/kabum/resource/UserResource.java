@@ -1,6 +1,7 @@
 package com.eduardo.kabum.resource;
 
-import java.util.Map;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 
 import javax.validation.Valid;
 
@@ -33,19 +34,7 @@ public class UserResource {
 
 	BCryptPasswordEncoder pwdEncoder = new BCryptPasswordEncoder();
 
-	// @ApiOperation(value = "Return a user list")
-	// @GetMapping("/user")
-	// public List<User> userList() {
-	// return (List<User>) userRepository.findAll();
-	// }
-
-	// @ApiOperation(value = "Return a user by id")
-	// @GetMapping("/user/{id}")
-	// public User userById(@PathVariable(value = "id") long id) {
-	// return userRepository.findById(id);
-	// }
-
-	@ApiOperation(value = "Return a user by name and username")
+	@ApiOperation(value = "Returns a response if the credentials are correct")
 	@GetMapping("/user/{username}/{password}")
 	public ResponseEntity<User> login(@PathVariable(value = "username") String username, @PathVariable(value = "password") String password) {
 
@@ -57,7 +46,7 @@ public class UserResource {
 				foundUser.setPassword(null);
 				return new ResponseEntity<>(foundUser, HttpStatus.OK);
 			} else {
-				return new ResponseEntity<>(null, HttpStatus.UNAUTHORIZED);
+				return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
 			}
 		} else {
 			return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
@@ -70,6 +59,10 @@ public class UserResource {
 
 		// Crypt password
 		user.setPassword(pwdEncoder.encode(user.getPassword()));
+
+		// Set the creation date
+		LocalDateTime currentDateTime = LocalDateTime.now(ZoneId.of("America/Sao_Paulo"));
+		user.setCreationDate(currentDateTime);
 
 		// Insert new user
 		User insertedUser = userRepository.save(user);
