@@ -125,5 +125,4 @@ public class CustomerAddress implements Serializable {
 	public void setCustomer(Customer customer) {
 		this.customer = customer;
 	}
-
 }

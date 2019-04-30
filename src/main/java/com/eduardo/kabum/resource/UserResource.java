@@ -70,5 +70,4 @@ public class UserResource {
 
 		return insertedUser;
 	}
-
 }
