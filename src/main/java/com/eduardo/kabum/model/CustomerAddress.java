@@ -31,7 +31,7 @@ public class CustomerAddress implements Serializable {
 
 	private String city;
 
-	private String country;
+	private String complement;
 
 	private String neighborhood;
 
@@ -70,12 +70,12 @@ public class CustomerAddress implements Serializable {
 		this.city = city;
 	}
 
-	public String getCountry() {
-		return this.country;
+	public String getComplement() {
+		return this.complement;
 	}
 
-	public void setCountry(String country) {
-		this.country = country;
+	public void setComplement(String complement) {
+		this.complement = complement;
 	}
 
 	public String getNeighborhood() {
