@@ -11,6 +11,9 @@ import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+
 /**
  * The persistent class for the customer database table.
  * 
@@ -18,6 +21,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "system_user")
 @NamedQuery(name = "SystemUser.findAll", query = "SELECT u FROM SystemUser u")
+@JsonInclude(Include.NON_NULL)
 public class SystemUser implements Serializable {
 
 	private static final long serialVersionUID = 1L;
