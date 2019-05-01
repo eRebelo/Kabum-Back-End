@@ -16,9 +16,9 @@ import javax.persistence.Table;
  * 
  */
 @Entity
-@Table(name = "user")
-@NamedQuery(name = "User.findAll", query = "SELECT u FROM User u")
-public class User implements Serializable {
+@Table(name = "system_user")
+@NamedQuery(name = "SystemUser.findAll", query = "SELECT u FROM SystemUser u")
+public class SystemUser implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
