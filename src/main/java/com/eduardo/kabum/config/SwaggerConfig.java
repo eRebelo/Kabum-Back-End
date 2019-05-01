@@ -26,7 +26,7 @@ public class SwaggerConfig {
 
 	private ApiInfo metaInfo() {
 		ApiInfo apiInfo = new ApiInfo("Kabum API REST", "API REST of register of customers.", "1.0", "Terms of Service", new Contact("Eduardo Rebelo", "http://linkedin.com/in/eduardo-rebelo", ""),
-				"Apache License Version 2.0", "https://www.apache.org/licesen.html", new ArrayList<VendorExtension>());
+				"Apache License Version 2.0", "https://apache.org/licenses/LICENSE-2.0", new ArrayList<VendorExtension>());
 
 		return apiInfo;
 	}

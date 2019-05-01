@@ -11,13 +11,13 @@ import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
-
+/**
+ * The persistent class for the customer database table.
+ * 
+ */
 @Entity
 @Table(name = "user")
 @NamedQuery(name = "User.findAll", query = "SELECT u FROM User u")
-@JsonInclude(Include.NON_NULL)
 public class User implements Serializable {
 
 	private static final long serialVersionUID = 1L;
