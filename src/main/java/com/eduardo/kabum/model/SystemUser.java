@@ -20,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
  * 
  */
 @Entity
-@Table(name = "system_user", uniqueConstraints = { @UniqueConstraint(columnNames = { "name" }) })
+@Table(name = "system_user", uniqueConstraints = { @UniqueConstraint(columnNames = { "username" }) })
 @NamedQuery(name = "SystemUser.findAll", query = "SELECT u FROM SystemUser u")
 @JsonInclude(Include.NON_NULL)
 public class SystemUser implements Serializable {
