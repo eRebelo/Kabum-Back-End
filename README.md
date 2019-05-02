@@ -38,7 +38,7 @@ URL: http://localhost:8090/swagger-ui.html
 
 ----------
 
-[1]: https://github.com/eRebelo/Kabum-Back-End/tree/master/database-dump
-[2]: https://github.com/eRebelo/Kabum-Back-End/blob/master/src/main/resources/application.properties
-[3]: https://github.com/eRebelo/Kabum-Back-End/blob/master/src/main/java/com/eduardo/kabum/KabumApplication.java
+[1]: https://github.com/eRebelo/Kabum-Back-End/tree/develop/database-dump
+[2]: https://github.com/eRebelo/Kabum-Back-End/blob/develop/src/main/resources/application.properties
+[3]: https://github.com/eRebelo/Kabum-Back-End/blob/develop/src/main/java/com/eduardo/kabum/KabumApplication.java
 [4]: https://kabumapi.herokuapp.com/swagger-ui.html
