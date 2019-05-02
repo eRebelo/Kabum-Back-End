@@ -17,8 +17,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.eduardo.kabum.model.User;
-import com.eduardo.kabum.repository.UserRepository;
+import com.eduardo.kabum.model.SystemUser;
+import com.eduardo.kabum.repository.SystemUserRepository;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -27,18 +27,18 @@ import io.swagger.annotations.ApiOperation;
 @RestController
 @RequestMapping(value = "/kabum/api")
 @Api(value = "User API REST")
-public class UserResource {
+public class SystemUserResource {
 
 	@Autowired
-	UserRepository userRepository;
+	SystemUserRepository userRepository;
 
 	BCryptPasswordEncoder pwdEncoder = new BCryptPasswordEncoder();
 
 	@ApiOperation(value = "Returns a response if the credentials are correct")
 	@GetMapping("/user/{username}/{password}")
-	public ResponseEntity<User> login(@PathVariable(value = "username") String username, @PathVariable(value = "password") String password) {
+	public ResponseEntity<SystemUser> login(@PathVariable(value = "username") String username, @PathVariable(value = "password") String password) {
 
-		User foundUser = userRepository.findByUsername(username);
+		SystemUser foundUser = userRepository.findByUsername(username);
 
 		if (foundUser != null) {
 			// Decrypt password
@@ -55,7 +55,7 @@ public class UserResource {
 
 	@ApiOperation(value = "Save a user")
 	@PostMapping("/user")
-	public User userSave(@RequestBody @Valid User user) {
+	public SystemUser userSave(@RequestBody @Valid SystemUser user) {
 
 		// Crypt password
 		user.setPassword(pwdEncoder.encode(user.getPassword()));
@@ -65,7 +65,7 @@ public class UserResource {
 		user.setCreationDate(currentDateTime);
 
 		// Insert new user
-		User insertedUser = userRepository.save(user);
+		SystemUser insertedUser = userRepository.save(user);
 		insertedUser.setPassword(null);
 
 		return insertedUser;
