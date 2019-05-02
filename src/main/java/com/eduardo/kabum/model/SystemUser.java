@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
@@ -19,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
  * 
  */
 @Entity
-@Table(name = "system_user")
+@Table(name = "system_user", uniqueConstraints = { @UniqueConstraint(columnNames = { "name" }) })
 @NamedQuery(name = "SystemUser.findAll", query = "SELECT u FROM SystemUser u")
 @JsonInclude(Include.NON_NULL)
 public class SystemUser implements Serializable {
